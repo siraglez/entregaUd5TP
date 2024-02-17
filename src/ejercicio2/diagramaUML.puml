@@ -1,0 +1,24 @@
+@startuml
+participant AnalisisFrecuenciaCaracteres
+participant Scanner
+participant HashMap
+participant String
+
+create AnalisisFrecuenciaCaracteres
+create Scanner
+create HashMap
+create String
+
+String ->
+AnalisisFrecuenciaCaracteres -> Scanner: new Scanner(System.in)
+AnalisisFrecuenciaCaracteres -> AnalisisFrecuenciaCaracteres: analizarFrecuenciaCaracteres()
+
+loop Lectura de texto
+  AnalisisFrecuenciaCaracteres -> Scanner: nextLine()
+  AnalisisFrecuenciaCaracteres -> AnalisisFrecuenciaCaracteres: procesarCaracteres()
+end
+
+destroy Scanner
+destroy HashMap
+destroy String
+@enduml
