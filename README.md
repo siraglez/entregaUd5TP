@@ -308,3 +308,53 @@ verificarPalindromo()
 # Diagrama UML
 
 El diagrama se encuentra dentro del paquete del ejercicio, en un archivo.puml (`diagramaUML.puml`).
+
+
+# Ejercicio 6: Análisis de Algoritmo de Matrices
+
+Este código Java es un programa simple que realiza operaciones básicas con matrices. Aquí está la explicación paso a paso:
+
+## 1. Paquete y Clase:
+
+El código está contenido en el paquete `ejercicio6` y define una clase llamada `AnalisisAlgoritmoMatrices`.
+
+## 2. Método `main`:
+
+El método `main` es el punto de entrada del programa. En este caso, simplemente llama al método `llenarMatriz()`.
+
+## 3. Método `llenarMatriz`:
+
+Este método crea una matriz bidimensional (`int[4][4]`) y la llena con valores ascendentes empezando desde 1. Utiliza dos bucles anidados (`for`) para recorrer las filas y columnas de la matriz, asignando el valor `val` a cada posición y aumentando `val` en 1 después de cada asignación. Luego, llama al método `imprimirMatriz` para mostrar la matriz en la consola.
+
+## 4. Método `imprimirMatriz`:
+
+Este método toma una matriz como parámetro y utiliza dos bucles anidados para recorrer las filas y columnas de la matriz. Imprime cada elemento de la matriz seguido por una tabulación (`\t`), lo que genera una presentación en forma de matriz. Después de imprimir una fila completa, agrega una nueva línea para pasar a la siguiente fila.
+
+En resumen, este programa crea y llena una matriz 4x4 con valores ascendentes, y luego imprime esta matriz en la consola. Es un ejemplo básico de manipulación de matrices en Java.
+
+# Pseudocódigo
+
+```java
+función llenarMatriz():
+    matriz = crearMatriz(4, 4)
+    val = 1
+
+    para i de 0 a 3:
+        para j de 0 a 3:
+            matriz[i][j] = val
+            val += 1
+
+    imprimirMatriz(matriz)
+
+función imprimirMatriz(matriz):
+    para i de 0 a longitud(matriz) -1:
+        para j de 0 a longitud(matriz[0]) -1:
+            imprimir(matriz[i][j] + "\t")
+        imprimir("\n")
+
+llenarMatriz()
+```
+
+# Diagrama UML
+
+El diagrama se encuentra dentro del paquete del ejercicio, en un archivo.puml (`diagramaUML.puml`).
