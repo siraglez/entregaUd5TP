@@ -1,0 +1,31 @@
+función esPalíndromo(palabra):
+    palabra = eliminarEspacios(palabra)
+    palabra = convertirAMinusculas(palabra)
+    returnar palabra == invertir(palabra)
+
+función eliminarEspacios(palabra):
+    retornar palabra sin espacios
+
+
+función convertirAMinusculas(palabra):
+    returnar palabra en minúsculas
+
+función invertir(cadena):
+    invertida = cadena vacía
+    para cada índice de i desde longitud(cadena) - 1 hasta 0 hacer
+        agregar cadena[i] a invertida
+    returnar invertida
+
+procedimiento verificarPalindromo():
+    palabra = obtenerPalabra()
+    si esPalindromo(palabra):
+        imprimir(palabra, " es un palíndromo.")
+    si no:
+        imprimir(palabra, " no es un palíndromo.")
+
+procedimiento obtenerPalabra():
+    imprimir("Ingrese una palabra: ")
+    palabra = leerEntrada()
+    retornar palabra
+
+verificarPalindromo()
