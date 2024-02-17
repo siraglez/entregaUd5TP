@@ -1,0 +1,17 @@
+función calcularMediaCalificaciones():
+    calificaciones = []
+    nota = obtenerNota()
+
+    mientras nota ≠ -1:
+        calificaciones.agregar(nota)
+        nota = obtenerNota()
+
+    media = calcularMedia(calificaciones)
+
+    imprimir("Calificaciones: ")
+    para cada calificación en calificaciones:
+        imprimir(calificacion + " ")
+
+    imprimir("-Media: " + media)
+
+calcularMediaCalificaciones()
