@@ -1,0 +1,15 @@
+función analizarFrecuenciaCaracteres():
+    frecuencias = diccionario vacío
+    texto = obtenerTexto()
+
+    para cada cáracter en texto:
+        si cáracter está en frecuencias:
+            frecuencias[carácter] += 1
+        si no:
+            frecuencias[carácter] = 1
+
+    imprimir("Frecuencia de caracteres:")
+    para cada entrada en frecuencias:
+        imprimir(entrada.clave + ": " + entrada.valor)
+
+analizarFrecuenciaCaracteres()
