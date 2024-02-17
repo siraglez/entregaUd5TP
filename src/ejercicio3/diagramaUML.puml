@@ -1,10 +1,18 @@
 @startuml
+title Sistema de Análisis de Calificaciones
 
-class SistemaAnalisisCalificaciones {
-    +main(args: String[]) : void
-    +calcularMediaCalificaciones() : void
-    +obtenerNota() : double
-    +calcularMedia(calificaciones: ArrayList<Double>) : double
-}
+participant Usuario
+participant Sistema
+
+Usuario -> Sistema: Ingresar nota
+loop while(Nota != -1)
+    Sistema -> Usuario: Mostrar mensaje para ingresar nota
+    Usuario -> Sistema: Ingresar nota
+    Sistema -> Sistema: Almacenar nota
+end
+
+Sistema -> Sistema: Calcular media
+Sistema -> Usuario: Mostrar calificaciones
+Sistema -> Usuario: Mostrar media
 
 @enduml
