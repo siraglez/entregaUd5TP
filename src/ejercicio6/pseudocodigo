@@ -1,0 +1,18 @@
+función llenarMatriz():
+    matriz = crearMatriz(4, 4)
+    val = 1
+
+    para i de 0 a 3:
+        para j de 0 a 3:
+            matriz[i][j] = val
+            val += 1
+
+    imprimirMatriz(matriz)
+
+función imprimirMatriz(matriz):
+    para i de 0 a longitud(matriz) -1:
+        para j de 0 a longitud(matriz[0]) -1:
+            imprimir(matriz[i][j] + "\t")
+        imprimir("\n")
+
+llenarMatriz()
