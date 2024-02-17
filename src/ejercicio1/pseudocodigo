@@ -1,0 +1,18 @@
+función cuentaAtrasLanzamiento():
+
+    función principal main():
+        cuentaAtrasLanzamiento()
+
+    timer = nuevo Timer()
+    segundos = [10]
+
+    tarea = nuevo TimerTask():
+        función run():
+            si segundos[0] > 0 entonces
+                imprimir "Cuenta atrás: ", segundos[0]
+                segundos[0] = segundos[0] -1
+            sino
+                timer.cancel()
+                imprimir "¡Despegué!"
+
+            timer.scheduleAtFixedRate(tarea, 0, 1000)
