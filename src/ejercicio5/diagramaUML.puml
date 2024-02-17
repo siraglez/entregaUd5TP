@@ -1,0 +1,13 @@
+@startuml
+title Verificador de Palíndromos
+
+participant Usuario
+participant Sistema
+
+Usuario -> Sistema: Ingresar palabra
+Sistema -> Sistema: Eliminar espacios y convertir a minúsculas
+Sistema -> Sistema: Invertir la palabra
+Sistema -> Sistema: Comparar palabra con inversa
+Sistema -> Usuario: Mostrar resultado (palíndromo o no)
+
+@enduml
