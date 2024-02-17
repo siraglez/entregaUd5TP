@@ -163,3 +163,73 @@ calcularMediaCalificaciones()
 # Diagrama UML
 
 El diagrama se encuentra dentro del paquete del ejercicio, en un archivo.puml (`diagramaUML.puml`).
+
+
+# Ejercicio 4: Simulador de Elecciones Electrónicas
+
+Este código Java implementa un simulador simple de elecciones electrónicas. Aquí hay una explicación detallada:
+
+## 1. Paquete y Clase
+
+- El código está contenido en el paquete `ejercicio4`.
+- La clase principal se llama `SimuladorEleccionesElectronicas`.
+
+## 2. Método `main`
+
+- El método `main` es el punto de entrada del programa.
+- Llama al método `simularElecciones` para iniciar la simulación de las elecciones.
+
+## 3. Método `simularElecciones`
+
+- Declara un `HashMap` llamado `votos` para almacenar los votos de los candidatos. La clave es el nombre del candidato (representado como una cadena) y el valor es el número de votos que ha recibido ese candidato.
+- Establece un `codigoEspecial` con el valor `68753421`, que se utilizará como criterio de salida del bucle de votación.
+- Utiliza un bucle `while` para permitir que los usuarios voten hasta que ingresen el código especial.
+- Dentro del bucle, verifica si el voto ya está en el `HashMap`. Si es así, incrementa el número de votos para ese candidato; de lo contrario, agrega un nuevo candidato con un voto.
+- Después de salir del bucle, llama al método `mostrarResultados` para mostrar los resultados de la votación.
+
+## 4. Método `obtenerVoto`
+
+- Crea un objeto `Scanner` para obtener la entrada del usuario desde la consola.
+- Muestra las opciones de voto ("Opciones de voto: A, B, C, D, E.") y solicita al usuario que ingrese su voto o el código especial para finalizar.
+- Convierte la entrada del usuario a mayúsculas antes de devolverla.
+
+## 5. Método `mostrarResultados`
+
+- Muestra los resultados de las elecciones utilizando un bucle `for` que itera sobre las entradas del `HashMap` que contiene los votos.
+- Imprime en la consola el nombre del candidato, seguido por la cantidad de votos que ha recibido.
+
+En resumen, este programa simula elecciones electrónicas donde los usuarios pueden votar por candidatos (representados por letras A, B, C, D, E) hasta que ingresen un código especial, y luego muestra los resultados de la votación.
+
+# Pseudocódigo
+
+```java
+fución simularElecciones():
+    votos = diccionario vacío
+    código_especial = 68753421
+    voto = obtenerVoto()
+
+    mientras voto ≠ coódigo_especial:
+        si voto en votos:
+            votos[voto] += 1
+        si no:
+            votos[voto] = 1
+        voto = obtenerVoto()
+
+    mostrarResultados(votos)
+
+función obtenerVoto():
+    imprimir("Opciones de voto: A, B, C, D, E.")
+    imprimir("Ingrese el voto (o ingrese el código especial para finalizar): ")
+    returnar entrada_del_usuario().convertit_a_mayúsculas()
+
+función mostrarResultados(votos):
+    imprimir("Resultados de las elecciones:")
+    para cada candidato, cantidad_votos en votos:
+        imprimir("Candidato " + candidato + ": " + cantidad_votos + " votos")
+
+simularElecciones()
+```
+
+# Diagrama UML
+
+El diagrama se encuentra dentro del paquete del ejercicio, en un archivo.puml (`diagramaUML.puml`).
