@@ -102,3 +102,64 @@ analizarFrecuenciaCaracteres()
 # Diagrama UML
 
 El diagrama se encuentra deltro del paquete del ejercicio, en un archivo.puml (`diagramaUML.puml`).
+
+
+# Ejercicio 3: Sistema de Análisis de Calificaciones
+
+Este código en Java representa un programa simple que recopila calificaciones de estudiantes, calcula su media y luego muestra todas las calificaciones junto con la media.
+
+## 1. Estructura del Código
+
+### 1.1 Paquete y Clase:
+
+El código se encuentra en el paquete "ejercicio3" y define una clase llamada "SistemaAnalisisCalificaciones".
+
+### 1.2 Método principal (`main`):
+
+El método `main` es el punto de entrada del programa y simplemente llama al método `calcularMediaCalificaciones`.
+
+### 1.3 Método `calcularMediaCalificaciones`:
+
+- Crea un objeto de la clase `ArrayList` para almacenar las calificaciones como valores de punto flotante (`Double`).
+- Utiliza un bucle `while` para solicitar al usuario ingresar calificaciones mediante el método `obtenerNota()` hasta que se ingrese -1.
+- Calcula la media de las calificaciones utilizando el método `calcularMedia`.
+- Imprime todas las calificaciones y su media en la consola.
+
+### 1.4 Método `obtenerNota`:
+
+- Utiliza la clase `Scanner` para obtener una calificación del usuario desde la entrada estándar (teclado).
+- Imprime un mensaje solicitando la calificación y devuelve el valor ingresado.
+
+### 1.5 Método `calcularMedia`:
+
+- Recibe un `ArrayList` de calificaciones como parámetro.
+- Utiliza un bucle `for-each` para sumar todas las calificaciones.
+- Calcula la media dividiendo la suma por la cantidad de calificaciones y la devuelve.
+
+En resumen, este programa permite al usuario ingresar calificaciones de estudiantes hasta que decide finalizar ingresando -1. Luego, muestra todas las calificaciones ingresadas junto con su media. Utiliza las clases `ArrayList` y `Scanner` para gestionar la entrada y almacenamiento de datos.
+
+# Pseudocódigo
+
+```java
+función calcularMediaCalificaciones():
+    calificaciones = []
+    nota = obtenerNota()
+
+    mientras nota ≠ -1:
+        calificaciones.agregar(nota)
+        nota = obtenerNota()
+
+    media = calcularMedia(calificaciones)
+
+    imprimir("Calificaciones: ")
+    para cada calificación en calificaciones:
+        imprimir(calificacion + " ")
+
+    imprimir("-Media: " + media)
+
+calcularMediaCalificaciones()
+```
+
+# Diagrama UML
+
+El diagrama se encuentra dentro del paquete del ejercicio, en un archivo.puml (`diagramaUML.puml`).
