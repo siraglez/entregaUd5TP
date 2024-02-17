@@ -1,0 +1,29 @@
+@startuml
+participant SimuladorLanzamientoCohetes
+participant Timer
+participant TimerTask
+
+create SimuladorLanzamientoCohetes
+create Timer
+create TimerTask
+
+TimerTask ->
+SimuladorLanzamientoCohetes -> Timer: new Timer()
+SimuladorLanzamientoCohetes -> TimerTask: new TimerTask()
+
+activate TimerTask
+loop Cuenta atrás
+  TimerTask -> TimerTask: run()
+  alt Segundos > 0
+    TimerTask -> SimuladorLanzamientoCohetes: Imprimir "Cuenta atrás: X"
+    TimerTask -> TimerTask: Decrementar segundos
+  else
+    TimerTask -> Timer: Cancelar timer
+    TimerTask -> SimuladorLanzamientoCohetes: Imprimir "¡Despegue!"
+  end
+end
+
+destroy SimuladorLanzamientoCohetes
+destroy Timer
+destroy TimerTask
+@enduml
