@@ -1,0 +1,16 @@
+@startuml
+title Simulador de Elecciones Electrónicas
+
+participant Usuario
+participant Sistema
+
+Usuario -> Sistema: Ingresar voto
+loop while(Voto != codigoEspecial)
+    Sistema -> Usuario: Mostrar opciones de voto
+    Usuario -> Sistema: Ingresar voto
+    Sistema -> Sistema: Almacenar voto
+end
+
+Sistema -> Sistema: Contar votos
+Sistema -> Usuario: Mostrar resultados
+@enduml
