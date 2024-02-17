@@ -47,3 +47,7 @@ función cuentaAtrasLanzamiento():
 
             timer.scheduleAtFixedRate(tarea, 0, 1000)
 ```
+
+# Diagrama UML
+
+El diagrama se encuentra dentro del paquete del ejercicio, en un archivo.puml (`diagramaUML.puml`)
