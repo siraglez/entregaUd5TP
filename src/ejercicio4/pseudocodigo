@@ -1,0 +1,25 @@
+fución simularElecciones():
+    votos = diccionario vacío
+    código_especial = 68753421
+    voto = obtenerVoto()
+
+    mientras voto ≠ coódigo_especial:
+        si voto en votos:
+            votos[voto] += 1
+        si no:
+            votos[voto] = 1
+        voto = obtenerVoto()
+
+    mostrarResultados(votos)
+
+función obtenerVoto():
+    imprimir("Opciones de voto: A, B, C, D, E.")
+    imprimir("Ingrese el voto (o ingrese el código especial para finalizar): ")
+    returnar entrada_del_usuario().convertit_a_mayúsculas()
+
+función mostrarResultados(votos):
+    imprimir("Resultados de las elecciones:")
+    para cada candidato, cantidad_votos en votos:
+        imprimir("Candidato " + candidato + ": " + cantidad_votos + " votos")
+
+simularElecciones()
