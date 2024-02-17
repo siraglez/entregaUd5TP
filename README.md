@@ -233,3 +233,78 @@ simularElecciones()
 # Diagrama UML
 
 El diagrama se encuentra dentro del paquete del ejercicio, en un archivo.puml (`diagramaUML.puml`).
+
+
+# Ejercicio 5: Verificador de Palíndromos
+
+El código Java proporcionado es un programa que verifica si una palabra ingresada por el usuario es un palíndromo. Un palíndromo es una palabra o frase que se lee igual de izquierda a derecha que de derecha a izquierda.
+
+## 1. Importación de paquetes:
+
+- Se especifica el paquete al que pertenece la clase y se importa la clase `Scanner` del paquete `java.util`, que se utilizará para leer la entrada del usuario.
+
+## 2. Declaración de la clase principal:
+
+- La clase principal se llama `VerificadorPalindromos`.
+
+## 3. Método principal (main):
+
+- Este método es el punto de entrada del programa. Aquí se solicita al usuario que ingrese una palabra, se lee la entrada y se llama a la función `esPalindromo` para verificar si es un palíndromo. Luego, se imprime el resultado.
+
+## 4. Lectura de la palabra del usuario:
+
+- Se crea un objeto `Scanner` para leer la entrada del usuario. Se muestra un mensaje solicitando al usuario que ingrese una palabra, y la entrada se almacena en la variable `palabra`.
+
+## 5. Verificación de palíndromo:
+
+- Se utiliza un condicional (`if`) para verificar si la palabra ingresada es un palíndromo utilizando la función `esPalindromo`. Dependiendo del resultado, se imprime un mensaje indicando si la palabra es o no un palíndromo.
+
+## 6. Función `esPalindromo`:
+
+- Esta función elimina espacios y convierte la palabra a minúsculas para evitar problemas de comparación. Luego, verifica si la palabra es igual a su versión invertida utilizando la función `invertir`.
+
+## 7. Función `invertir`:
+
+- La función `invertir` toma una cadena y la invierte caracter por caracter, utilizando un bucle `for` que comienza desde el último índice hasta el primero. La cadena invertida se devuelve como un objeto `String`.
+
+En resumen, este programa verifica si una palabra ingresada por el usuario es un palíndromo, teniendo en cuenta la eliminación de espacios y la insensibilidad a mayúsculas y minúsculas.
+
+# Pseudocódigo
+
+```java
+función esPalíndromo(palabra):
+    palabra = eliminarEspacios(palabra)
+    palabra = convertirAMinusculas(palabra)
+    returnar palabra == invertir(palabra)
+
+función eliminarEspacios(palabra):
+    retornar palabra sin espacios
+
+
+función convertirAMinusculas(palabra):
+    returnar palabra en minúsculas
+
+función invertir(cadena):
+    invertida = cadena vacía
+    para cada índice de i desde longitud(cadena) - 1 hasta 0 hacer
+        agregar cadena[i] a invertida
+    returnar invertida
+
+procedimiento verificarPalindromo():
+    palabra = obtenerPalabra()
+    si esPalindromo(palabra):
+        imprimir(palabra, " es un palíndromo.")
+    si no:
+        imprimir(palabra, " no es un palíndromo.")
+
+procedimiento obtenerPalabra():
+    imprimir("Ingrese una palabra: ")
+    palabra = leerEntrada()
+    retornar palabra
+
+verificarPalindromo()
+```
+
+# Diagrama UML
+
+El diagrama se encuentra dentro del paquete del ejercicio, en un archivo.puml (`diagramaUML.puml`).
