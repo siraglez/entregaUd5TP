@@ -1,0 +1,14 @@
+@startuml
+title Análisis de Algoritmo de Llenado de Matrices
+
+participant Sistema
+
+Sistema -> Sistema: Crear matriz 4x4
+loop i 4 times
+    loop j 4 times
+        Sistema -> Sistema: Asignar valor consecutivo a matriz[i][j]
+    end loop
+end loop
+Sistema -> Sistema: Imprimir matriz
+
+@enduml
