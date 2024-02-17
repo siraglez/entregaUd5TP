@@ -1,0 +1,10 @@
+@startuml
+
+class SistemaAnalisisCalificaciones {
+    +main(args: String[]) : void
+    +calcularMediaCalificaciones() : void
+    +obtenerNota() : double
+    +calcularMedia(calificaciones: ArrayList<Double>) : double
+}
+
+@enduml
