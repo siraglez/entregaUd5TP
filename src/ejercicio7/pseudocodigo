@@ -1,0 +1,20 @@
+función generarMatrizAleatoria():
+    matriz = crearMatriz(20, 30)
+    para i de 0 a 19:
+        para j de 0 a 29:
+            matriz[i][j] = generarCaracterAleatorio()
+        mostrarMatriz(matriz)
+
+función crearMatriz(filas, columnas):
+    //Crea una matriz vacía con el tamaño especificado
+    retornar nueva matriz de tamaño[filas, columnas]
+
+función generarCaracterAleatorio():
+    //Genera un carácter aleatorio entre 'A' y 'Z'
+    retornar carácter aleatorio entre 'A' y 'Z'
+
+función mostrarMatriz(matriz):
+    para i de 0 a longitud de matriz - 1:
+        para j de 0 a longitud de matriz [0] - 1:
+            imprimir matriz[i][j] + " "
+        imprimir nueva línea
