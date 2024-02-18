@@ -420,3 +420,90 @@ función mostrarMatriz(matriz):
 # Diagrama UML
 
 El diagrama se encuentra dentro del paquete del ejercicio, en un archivo.puml (`diagramaUML.puml`).
+
+
+# Ejercicio 8: Juego de Batalla Naval Simplificado
+
+Este código en Java implementa un juego de batalla naval simplificado para un solo jugador con un tablero de 4x4. A continuación, se proporciona una explicación detallada de cada parte del código:
+
+## 1. Clase `JuegoBatallaNaval`
+
+- **Método `main`:** Este método es el punto de entrada principal del programa. Llama al método `jugarBatallaNaval()` para iniciar el juego.
+- **Método `jugarBatallaNaval`:** Contiene la lógica principal del juego. Inicia creando un tablero de 4x4 y eligiendo aleatoriamente la ubicación del barco. Entra en un bucle que solicita intentos al jugador hasta que este acierta la ubicación del barco. En cada iteración, se muestra el tablero, se toma un nuevo intento y se realiza la verificación correspondiente.
+- **Método `crearTablero`:** Devuelve una matriz vacía de caracteres (char) con las dimensiones especificadas.
+- **Método `elegirUbicacionAleatoria`:** Elige aleatoriamente una fila y una columna en el tablero y devuelve estas coordenadas como un arreglo de enteros.
+- **Método `obtenerIntento`:** Solicita al jugador que ingrese las coordenadas del intento y devuelve estas coordenadas como un arreglo de enteros.
+- **Método `marcarAgua`:** Marca la casilla del tablero con un 'O' indicando que el intento del jugador fue agua.
+- **Método `marcarTocadoYHundido`:** Marca la casilla del tablero con un 'X' indicando que el intento del jugador acertó la ubicación del barco.
+- **Método `mostrarTablero`:** Muestra el estado actual del tablero en la consola.
+- **Método `esIgual`:** Compara dos conjuntos de coordenadas y devuelve true si son iguales, indicando que el intento del jugador coincide con la ubicación del barco.
+
+## 2. Lecturas y Salidas
+
+- Se utiliza la clase `Scanner` para leer las entradas del usuario desde la consola.
+- Se utilizan diversas instrucciones de impresión (`System.out.println`) para mostrar mensajes en la consola.
+
+## 3. Random
+
+- Se utiliza la clase `Random` para generar números aleatorios y así elegir aleatoriamente la ubicación del barco.
+
+## 4. Ejecución
+
+- El programa comienza ejecutando el método `main`, que a su vez llama al método `jugarBatallaNaval()`.
+- El juego continúa hasta que el jugador acierte la ubicación del barco.
+
+Este código constituye una implementación básica de un juego de batalla naval en Java, con un enfoque interactivo y aleatorio para generar la ubicación del barco.
+
+# Pseudocódigo
+
+```java
+función jugarBatallaNaval():
+    tablero = crearTablero(4, 4)
+    ubicacionBarco = elegirUbicacionAleatoria(tablero)
+    intento = obtenerIntento()
+
+    mientreas noEsIgual(intento, ubicacionBarco) hacer
+        marcarAgua(tablero, intento)
+        mostrarTablero(tablero)
+        intento = obtenerIntento()
+
+    marcarTocadoYHundido(tablero, intento)
+    mostrarTablero(tablero)
+    imprimir("Tocado y hundido - ¡Has ganado!")
+
+función crearTablero(filas, columnas):
+    retornar una matriz vacía de dimensiones filas x columnas
+
+función elegirUbicacionAleatoria(tablero):
+    fila = obtenerNumeroAleatorio(0, longitud(tablero) - 1)
+    columna = obtenerNumeroAleatorio(0, longitud(tablero[0]) - 1)
+    retornar una lista [fila, columna]
+
+función obtenerIntento():
+    imprimir("Ingrese una fila (0-3): ")
+    fila = leerEnteroDesdeConsola()
+    imprimir("Ingrese una columna (0-3): ")
+    columna = leerEnteroDesdeConsola()
+    retornar una lista [fila, columna]
+
+función marcarAgua(tablero, coordenadas):
+    tablero[coordenadas[0]][coordenadas[1]] = 'O'
+    imprimir("Agua - Intenta de nuevo.")
+
+función marcarTocadoYHundido(tablero, coordenadas):
+    tablero[coordenadas[0]][coordenadas[1]] = 'X'
+
+función mostrarTablero(tablero):
+    imprimir("Tablero:")
+    para cada fila en tablero hacer:
+        para cada celda en fila hacer:
+            imprimir(celda + " ")
+        imprimir()
+
+función esIgul(coordenadas1, coordenadas2):
+retornar coordenadaas1[0] == coordenadas2[0] y coordenadas1[1] == coordenadas2[1]
+```
+
+# Diagrama UML
+
+El diagrama se encuentra dentro del paquete del ejercicio, en un archivo.puml (`diagramaUML.puml`).
