@@ -1,0 +1,15 @@
+@startuml
+title Generador de Matrices Aleatorias
+
+participant Sistema
+
+Sistema -> Sistema: Crear matriz 20x30
+loop i 20 times
+    loop j 30 times
+        Sistema -> Sistema: Generar caracter aleatorio ('A'-'Z')
+        Sistema -> Sistema: Asignar caracter a matriz[i][j]
+    end loop
+end loop
+Sistema -> Sistema: Imprimir matriz
+
+@enduml
