@@ -644,3 +644,84 @@ función mostrarResultado(tablero):
 # Diagrama UML
 
 El diagrama se encuentra dentro del paquete del ejercicio, en un archivo.puml (`diagramaUML.puml`).
+
+
+# Ejercicio 10: Sistema de Búsqueda de Empleados con Tablas Hash
+
+Este código en Java implementa un sistema de búsqueda de empleados utilizando una estructura de tabla hash. A continuación, se presenta una explicación detallada del código:
+
+## 1. Clase Empleado:
+
+- La clase `Empleado` representa a un empleado con atributos como `nombre`, `numeroEmpleado`, y `numeroSeguridadSocial`.
+- Se proporciona un constructor para inicializar los atributos cuando se crea un nuevo objeto `Empleado`.
+
+## 2. Clase SistemaBusqueda:
+
+- La clase `SistemaBusqueda` es responsable de gestionar la búsqueda y almacenamiento de empleados.
+- Contiene una tabla hash (`Map<Integer, Empleado> tablaHash`) donde la clave es el `numeroEmpleado` y el valor es un objeto `Empleado`.
+- Tiene un constructor que inicializa la tabla hash como un nuevo `HashMap`.
+- La función `agregarEmpleado` añade un nuevo empleado a la tabla hash. Utiliza el `numeroEmpleado` como clave y verifica si ya existe un empleado con esa clave antes de agregarlo.
+- La función `buscarEmpleado` devuelve un empleado dado su número de empleado utilizando la tabla hash.
+
+## 3. Clase principal SistemaBusquedaEmpleados:
+
+- La clase principal contiene el método `main`, que es la entrada principal del programa.
+- Se crea una instancia de `SistemaBusqueda` llamada `sistema`.
+- Se utiliza un objeto `Scanner` para permitir al usuario ingresar información desde la consola.
+- Se inicia un bucle que permite al usuario agregar empleados ingresando el nombre, número de empleado y número de seguridad social. El bucle se rompe cuando el usuario ingresa "fin".
+- Después de agregar empleados, se solicita al usuario que ingrese un número de empleado para buscar en la tabla hash.
+- Se muestra si se encuentra o no el empleado con el número ingresado.
+
+En resumen, este código Java crea un sistema simple de búsqueda de empleados que utiliza una tabla hash para almacenar y buscar empleados por su número de empleado, y permite al usuario agregar manualmente la información de los empleados.
+
+# Pseudocódigo
+
+```java
+función crearSistemaBusquedaEmpleados():
+    //Crear una tabla hash
+    tabla_hash = crearTablaHash()
+
+    //Ciclo para permitir al usuario agregar empleados
+    mientras (verdadero):
+        imprimir "Ingrese el nombre del empleado ( o 'fin' para salir): "
+        nombre = leerEntrada()
+
+        //Salir del bucle si el usuario ingresa 'fin'
+        si (nombre.equalsIgnoreCase("fin")):
+            romper
+
+        imprimir "Ingrese el número de empleado: "
+        numeroEmpleado = leerEntero()
+
+        //Limpiar el buffer de entrada
+        limpiarBufferEntrada()
+
+        imprimir "Ingrese el número de la seguridad social: "
+        numeroSeguridadSocial = leerEntrada()
+
+        //Crear un nuevo empleado con los datos proporcionados
+        nuevoEmpleado = crearEmpleado(nombre, numeroEmpleado, numeroSeguridadSocial)
+
+        //Agregar el empleado al sistema de búsqueda
+        agregarEmpleado(tabla_hash, nuevoEmpleado)
+
+    //Pedir al usuario que ingrese el número de empleado que desea buscar
+    imprimir "Ingrese el número de empleado que desea buscar: "
+    numeroBusqueda = leerEntero()
+
+    //Buscar el empleado en la tabla hash
+    empleadoEncontrado = buscarEmpleado(tabla_hash, numeroBusqueda)
+
+    //Mostrar el resultado de la búsqueda
+    si (empleadoEncontrado != nulo):
+        imprimir "Empleado encontrado: " + empleadoEncontrado.nombre
+    sino:
+        imprimir "Empleado no encontrado.
+
+//Llamada a la función principal
+crearSistemaBusquedaEmpleados()
+```
+
+# Diagrama UML
+
+El diagrama se encuentra dentro del paquete del ejercicio, en un archivo.puml (`diagramaUML.puml`).
