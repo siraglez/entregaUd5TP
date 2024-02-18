@@ -1,0 +1,74 @@
+función jugarTresEnRaya():
+    tablero = crearTablero(3, 3)
+    jugador_actual = 'X'
+
+    mientras no hayGanador(tablero) y no hayEmpate(tablero):
+        mostrarTablero(tablero)
+        realizarMovimiento(tablero, jugador_actual)
+        jugador_actual = cambiarJugador(jugador_actual)
+
+    mostrarResultado(tablero)
+
+jugarTresEnRaya()
+
+función crearTablero(filas, columnas):
+    devolver arreglo bidimensional de tamaño [filas][columnas]
+
+función mostrarTablero(tablero):
+    imprimir "Tablero actual:"
+    para cada fila en tablero:
+        para cada columna en fila:
+            imprimir tablero[fila][columna] + " "
+        imprimir nueva línea
+    imprimir nueva línea
+
+función realizarMovimiento(tablero, jugador):
+    scanner = nuevo Scanner
+    fila, columna = -1, -1
+
+    hacer mientras no esMovimientoValido(tablero, fila, columna):
+        imprimir "Turno del jugador " + jugador + ":"
+        imprimir "Ingrese fila (0-2): "
+        fila = scanner.nextInt()
+        imprimir "Ingrese columna (0-2): "
+        columna = scanner.nextInt()
+
+    tablero[fila][columna] = jugador
+
+función esMovimientoValido(tablero, fila, columna):
+    devolver fila >= 0 y fila < longitud de tablero y columna >= 0 y columna < longitud de tablero[0] y tablero[fila][columa] == 0
+
+función cambiarJugador(jugador):
+    devolver 'O' si jugador es 'X', de lo contrario 'X'
+
+función hayGanador(tablero):
+    para cada i de 0 a 2:
+        si tablero[i][0] no es 0 y tablero[i][0] es igual a tablero[i][1] y tablero[i][0] es igual a tablero[i][2]:
+                imprimir "¡El jugador " + tablero[i][0] + " ha ganado!"
+                devolver verdadero
+        si tablero[0][i] no es 0 y tablero[0][i] es igual a tablero[1][i] y tablero[0][i] es igual a tablero[2][i]:
+                imprimir "¡El jugador " + tablero[0][i] + " ha ganado!"
+                devolver verdadero
+
+    si tablero[0][0] no es 0 y tablero[0][0] es igual a tablero[1][1] y tablero[0][0] es igual a tablero[2][2]:
+            imprimir "¡El jugador " + tablero[0][0] + " ha ganado!"
+            devolver verdadero
+    si tablero[0][2] no es 0 y tablero[0][2] es igual a tablero[1][1] y tablero[0][2] es igual a tablero[2][0]:
+            imprimir "¡El jugador " + tablero[0][2] + " ha ganado!"
+            devolver verdadero
+
+    devolver falso
+
+función hayEmpate(tablero):
+    para cada fila en tablero:
+        para cada columna en fila:
+            si tablero[fila][columna] es igual a 0:
+                devolver falso //Todavía hay casillas vacías, no hay empate
+
+    imprimir "¡El juego ha terminado en empate!"
+    devolver verdadero
+
+función mostrarResultado(tablero):
+    imprimir "Tablero final:"
+    mostrarTablero(tablero)
+    imprimir "Gracias por jugar."
