@@ -1,0 +1,45 @@
+función jugarBatallaNaval():
+    tablero = crearTablero(4, 4)
+    ubicacionBarco = elegirUbicacionAleatoria(tablero)
+    intento = obtenerIntento()
+
+    mientreas noEsIgual(intento, ubicacionBarco) hacer
+        marcarAgua(tablero, intento)
+        mostrarTablero(tablero)
+        intento = obtenerIntento()
+
+    marcarTocadoYHundido(tablero, intento)
+    mostrarTablero(tablero)
+    imprimir("Tocado y hundido - ¡Has ganado!")
+
+función crearTablero(filas, columnas):
+    retornar una matriz vacía de dimensiones filas x columnas
+
+función elegirUbicacionAleatoria(tablero):
+    fila = obtenerNumeroAleatorio(0, longitud(tablero) - 1)
+    columna = obtenerNumeroAleatorio(0, longitud(tablero[0]) - 1)
+    retornar una lista [fila, columna]
+
+función obtenerIntento():
+    imprimir("Ingrese una fila (0-3): ")
+    fila = leerEnteroDesdeConsola()
+    imprimir("Ingrese una columna (0-3): ")
+    columna = leerEnteroDesdeConsola()
+    retornar una lista [fila, columna]
+
+función marcarAgua(tablero, coordenadas):
+    tablero[coordenadas[0]][coordenadas[1]] = 'O'
+    imprimir("Agua - Intenta de nuevo.")
+
+función marcarTocadoYHundido(tablero, coordenadas):
+    tablero[coordenadas[0]][coordenadas[1]] = 'X'
+
+función mostrarTablero(tablero):
+    imprimir("Tablero:")
+    para cada fila en tablero hacer:
+        para cada celda en fila hacer:
+            imprimir(celda + " ")
+        imprimir()
+
+función esIgul(coordenadas1, coordenadas2):
+retornar coordenadaas1[0] == coordenadas2[0] y coordenadas1[1] == coordenadas2[1]
