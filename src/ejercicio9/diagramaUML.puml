@@ -1,0 +1,19 @@
+@startuml
+
+participant Jugador as J
+participant TresEnRaya as T
+
+J -> T: jugarTresEnRaya()
+
+T -> T: crearTablero(3, 3)
+T -> T: inicializar jugador_actual = 'X'
+
+loop while !hayGanador(tablero) && !hayEmpate(tablero)
+    T -> J: mostrarTablero(tablero)
+    J -> T: realizarMovimiento(tablero, jugador_actual)
+    T -> T: jugador_actual = cambiarJugador(jugador_actual)
+end
+
+T -> T: mostrarResultado(tablero)
+
+@enduml
