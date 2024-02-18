@@ -1,0 +1,45 @@
+@startuml
+
+class Empleado {
+    - String nombre
+    - int numeroEmpleado
+    - String numeroSeguridadSocial
+
+    + Empleado(String nombre, int numeroEmpleado, String numeroSeguridadSocial)
+}
+
+class SistemaBusqueda {
+    - Map<Integer, Empleado> tablaHash
+
+    + SistemaBusqueda()
+    + agregarEmpleado(Empleado empleado)
+    + Empleado buscarEmpleado(int numeroEmpleado)
+}
+
+class SistemaBusquedaEmpleados {
+    + main(String[] args)
+}
+
+Empleado -- SistemaBusqueda
+SistemaBusqueda -> Map
+
+@enduml
+
+@startuml
+participant Usuario as U
+participant SistemaBusquedaEmpleados as SBE
+participant SistemaBusqueda as SB
+participant Empleado as E
+
+U -> SBE: ingresar nombre, número de empleado y número de seguridad social
+SBE -> SB: agregarEmpleado(E)
+SB -> Map: put(clave, E)
+
+U -> SBE: ingresar número de empleado para buscar
+SBE -> SB: buscarEmpleado(numeroEmpleado)
+SB -> Map: get(numeroEmpleado)
+Map --> SB: Empleado
+SB --> SBE: empleadoEncontrado
+SBE -> U: mostrar empleadoEncontrado
+
+@enduml
