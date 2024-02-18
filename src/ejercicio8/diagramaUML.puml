@@ -1,0 +1,24 @@
+@startuml
+title Juego Batalla Naval
+
+participant Usuario
+participant Sistema
+
+Sistema -> Sistema: Crear tablero 4x4
+Sistema -> Sistema: Elegir ubicación aleatoria del barco
+loop while(true)
+    Sistema -> Usuario: Mostrar tablero
+    Usuario -> Sistema: Ingresar fila (0-3)
+    Usuario -> Sistema: Ingresar columna (0-3)
+    Sistema -> Sistema: Obtener coordenadas del intento
+        Sistema -> Sistema: Marcar tocado y hundido en tablero
+        Sistema -> Usuario: Mostrar tablero
+        Sistema -> Usuario: Mostrar mensaje "Tocado y hundido - ¡Has ganado!"
+        break
+    else
+        Sistema -> Sistema: Marcar agua en tablero
+        Sistema -> Usuario: Mostrar mensaje "Agua - Intenta de nuevo."
+    end cond
+end loop
+
+@enduml
