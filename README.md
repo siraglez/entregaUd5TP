@@ -507,3 +507,140 @@ retornar coordenadaas1[0] == coordenadas2[0] y coordenadas1[1] == coordenadas2[1
 # Diagrama UML
 
 El diagrama se encuentra dentro del paquete del ejercicio, en un archivo.puml (`diagramaUML.puml`).
+
+
+# Ejercicio 9: Tres en Raya
+
+El código proporcionado implementa el juego de "Tres en Raya" en Java. A continuación, se explica cada parte del código:
+
+## 1. Función Principal (`main`):
+
+La función `main` inicia el programa llamando a la función `jugarTresEnRaya()`.
+
+## 2. Función `jugarTresEnRaya()`:
+
+- Inicia un tablero de juego 3x3 mediante la función `crearTablero(3, 3)`.
+- Establece el símbolo del jugador actual como 'X'.
+- Inicia un bucle `while` que continuará hasta que haya un ganador o un empate.
+  - Muestra el tablero actual llamando a `mostrarTablero(tablero)`.
+  - Permite al jugador actual realizar un movimiento llamando a `realizarMovimiento(tablero, jugador_actual)`.
+  - Cambia al siguiente jugador llamando a `cambiarJugador(jugador_actual)`.
+
+## 3. Función `crearTablero(int filas, int columnas)`:
+
+Devuelve un nuevo arreglo bidimensional de caracteres (char) con el tamaño especificado por las filas y columnas.
+
+## 4. Función `mostrarTablero(char[][] tablero)`:
+
+Muestra el estado actual del tablero en la consola.
+
+## 5. Función `realizarMovimiento(char[][] tablero, char jugador)`:
+
+- Utiliza un objeto `Scanner` para obtener la entrada del usuario.
+- Solicita al jugador actual que ingrese fila y columna para realizar su movimiento.
+- Verifica la validez del movimiento mediante `esMovimientoValido(tablero, fila, columna)`.
+
+## 6. Función `esMovimientoValido(char[][] tablero, int fila, int columna)`:
+
+Verifica si la posición especificada en el tablero está vacía y dentro de los límites.
+
+## 7. Función `cambiarJugador(char jugador)`:
+
+Cambia el símbolo del jugador actual (entre 'X' y 'O').
+
+## 8. Función `hayGanador(char[][] tablero)`:
+
+Verifica si hay un ganador revisando las filas, columnas y diagonales del tablero.
+
+## 9. Función `hayEmpate(char[][] tablero)`:
+
+Verifica si hay un empate revisando si no hay más casillas vacías en el tablero.
+
+## 10. Función `mostrarResultado(char[][] tablero)`:
+
+Muestra el tablero final y un mensaje de agradecimiento por jugar.
+
+En resumen, este código Java representa una implementación funcional del juego "Tres en Raya" con funciones que manejan la creación del tablero, la realización de movimientos, la verificación de ganadores o empates, y la presentación del resultado del juego.
+
+# Pseudocódigo
+
+```java
+función jugarTresEnRaya():
+    tablero = crearTablero(3, 3)
+    jugador_actual = 'X'
+
+    mientras no hayGanador(tablero) y no hayEmpate(tablero):
+        mostrarTablero(tablero)
+        realizarMovimiento(tablero, jugador_actual)
+        jugador_actual = cambiarJugador(jugador_actual)
+
+    mostrarResultado(tablero)
+
+jugarTresEnRaya()
+
+función crearTablero(filas, columnas):
+    devolver arreglo bidimensional de tamaño [filas][columnas]
+
+función mostrarTablero(tablero):
+    imprimir "Tablero actual:"
+    para cada fila en tablero:
+        para cada columna en fila:
+            imprimir tablero[fila][columna] + " "
+        imprimir nueva línea
+    imprimir nueva línea
+
+función realizarMovimiento(tablero, jugador):
+    scanner = nuevo Scanner
+    fila, columna = -1, -1
+
+    hacer mientras no esMovimientoValido(tablero, fila, columna):
+        imprimir "Turno del jugador " + jugador + ":"
+        imprimir "Ingrese fila (0-2): "
+        fila = scanner.nextInt()
+        imprimir "Ingrese columna (0-2): "
+        columna = scanner.nextInt()
+
+    tablero[fila][columna] = jugador
+
+función esMovimientoValido(tablero, fila, columna):
+    devolver fila >= 0 y fila < longitud de tablero y columna >= 0 y columna < longitud de tablero[0] y tablero[fila][columa] == 0
+
+función cambiarJugador(jugador):
+    devolver 'O' si jugador es 'X', de lo contrario 'X'
+
+función hayGanador(tablero):
+    para cada i de 0 a 2:
+        si tablero[i][0] no es 0 y tablero[i][0] es igual a tablero[i][1] y tablero[i][0] es igual a tablero[i][2]:
+                imprimir "¡El jugador " + tablero[i][0] + " ha ganado!"
+                devolver verdadero
+        si tablero[0][i] no es 0 y tablero[0][i] es igual a tablero[1][i] y tablero[0][i] es igual a tablero[2][i]:
+                imprimir "¡El jugador " + tablero[0][i] + " ha ganado!"
+                devolver verdadero
+
+    si tablero[0][0] no es 0 y tablero[0][0] es igual a tablero[1][1] y tablero[0][0] es igual a tablero[2][2]:
+            imprimir "¡El jugador " + tablero[0][0] + " ha ganado!"
+            devolver verdadero
+    si tablero[0][2] no es 0 y tablero[0][2] es igual a tablero[1][1] y tablero[0][2] es igual a tablero[2][0]:
+            imprimir "¡El jugador " + tablero[0][2] + " ha ganado!"
+            devolver verdadero
+
+    devolver falso
+
+función hayEmpate(tablero):
+    para cada fila en tablero:
+        para cada columna en fila:
+            si tablero[fila][columna] es igual a 0:
+                devolver falso //Todavía hay casillas vacías, no hay empate
+
+    imprimir "¡El juego ha terminado en empate!"
+    devolver verdadero
+
+función mostrarResultado(tablero):
+    imprimir "Tablero final:"
+    mostrarTablero(tablero)
+    imprimir "Gracias por jugar."
+```
+
+# Diagrama UML
+
+El diagrama se encuentra dentro del paquete del ejercicio, en un archivo.puml (`diagramaUML.puml`).
