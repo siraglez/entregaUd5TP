@@ -1,0 +1,43 @@
+función crearSistemaBusquedaEmpleados():
+    //Crear una tabla hash
+    tabla_hash = crearTablaHash()
+
+    //Ciclo para permitir al usuario agregar empleados
+    mientras (verdadero):
+        imprimir "Ingrese el nombre del empleado ( o 'fin' para salir): "
+        nombre = leerEntrada()
+
+        //Salir del bucle si el usuario ingresa 'fin'
+        si (nombre.equalsIgnoreCase("fin")):
+            romper
+
+        imprimir "Ingrese el número de empleado: "
+        numeroEmpleado = leerEntero()
+
+        //Limpiar el buffer de entrada
+        limpiarBufferEntrada()
+
+        imprimir "Ingrese el número de la seguridad social: "
+        numeroSeguridadSocial = leerEntrada()
+
+        //Crear un nuevo empleado con los datos proporcionados
+        nuevoEmpleado = crearEmpleado(nombre, numeroEmpleado, numeroSeguridadSocial)
+
+        //Agregar el empleado al sistema de búsqueda
+        agregarEmpleado(tabla_hash, nuevoEmpleado)
+
+    //Pedir al usuario que ingrese el número de empleado que desea buscar
+    imprimir "Ingrese el número de empleado que desea buscar: "
+    numeroBusqueda = leerEntero()
+
+    //Buscar el empleado en la tabla hash
+    empleadoEncontrado = buscarEmpleado(tabla_hash, numeroBusqueda)
+
+    //Mostrar el resultado de la búsqueda
+    si (empleadoEncontrado != nulo):
+        imprimir "Empleado encontrado: " + empleadoEncontrado.nombre
+    sino:
+        imprimir "Empleado no encontrado.
+
+//Llamada a la función principal
+crearSistemaBusquedaEmpleados()
