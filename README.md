@@ -358,3 +358,65 @@ llenarMatriz()
 # Diagrama UML
 
 El diagrama se encuentra dentro del paquete del ejercicio, en un archivo.puml (`diagramaUML.puml`).
+
+
+# Ejercicio 7: Generador de Matrices Aleatorias
+
+Este código Java genera una matriz de caracteres aleatorios de tamaño 20x30 y luego la muestra en la consola. Aquí está la explicación detallada del código:
+
+## 1. Clase y Paquete
+
+La clase se llama `GeneradorMatricesAleatorias` y está contenida en el paquete `ejercicio7`.
+
+## 2. Método `main`
+
+El método `main` es el punto de entrada del programa. En este caso, simplemente llama al método `generarMatrizAleatoria()`.
+
+## 3. Método `generarMatrizAleatoria`
+
+- Declara una matriz bidimensional de caracteres (`char`) de tamaño 20x30 llamada `matriz`.
+- Utiliza dos bucles anidados (`for`) para iterar sobre cada posición de la matriz.
+- En cada posición, llama al método `generarCaracterAleatorio()` para obtener un carácter aleatorio y lo asigna a la posición correspondiente en la matriz.
+- Después de llenar la matriz, llama al método `mostrarMatriz(matriz)` para imprimir la matriz en la consola.
+
+## 4. Método `generarCaracterAleatorio`
+
+- Crea una instancia de la clase `Random` para generar números aleatorios.
+- Utiliza `random.nextInt(26)` para obtener un número aleatorio entre 0 y 25 (inclusive), y luego le suma 'A' para obtener un valor entre 'A' y 'Z'. Devuelve este carácter aleatorio.
+
+## 5. Método `mostrarMatriz`
+
+- Utiliza bucles anidados para iterar sobre cada elemento de la matriz y lo imprime en la consola.
+- Imprime un espacio después de cada carácter.
+- Imprime una nueva línea después de cada fila para formar una matriz visualmente coherente en la consola.
+
+En resumen, este programa crea y muestra una matriz de caracteres aleatorios, donde cada carácter es una letra mayúscula entre 'A' y 'Z'.
+
+# Pseudocódigo
+
+```java
+función generarMatrizAleatoria():
+    matriz = crearMatriz(20, 30)
+    para i de 0 a 19:
+        para j de 0 a 29:
+            matriz[i][j] = generarCaracterAleatorio()
+        mostrarMatriz(matriz)
+
+función crearMatriz(filas, columnas):
+    //Crea una matriz vacía con el tamaño especificado
+    retornar nueva matriz de tamaño[filas, columnas]
+
+función generarCaracterAleatorio():
+    //Genera un carácter aleatorio entre 'A' y 'Z'
+    retornar carácter aleatorio entre 'A' y 'Z'
+
+función mostrarMatriz(matriz):
+    para i de 0 a longitud de matriz - 1:
+        para j de 0 a longitud de matriz [0] - 1:
+            imprimir matriz[i][j] + " "
+        imprimir nueva línea
+```
+
+# Diagrama UML
+
+El diagrama se encuentra dentro del paquete del ejercicio, en un archivo.puml (`diagramaUML.puml`).
